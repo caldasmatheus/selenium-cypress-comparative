@@ -114,3 +114,32 @@ Cypress.Commands.add('clickButtonUpload', (selector: string) => {
 Cypress.Commands.add('verifyAlert', (expectedMessage: string) => {
    cy.get('@alertStub').should('have.been.calledOnceWith', expectedMessage);
 });
+
+// general_components_commands.ts
+Cypress.Commands.add('clickElement', (selector: string) => {
+   cy.get(selector).click();
+});
+
+Cypress.Commands.add('doubleClickElement', (selector: string) => {
+   cy.get(selector).dblclick();
+});
+
+Cypress.Commands.add('rightClickElement', (selector: string) => {
+   cy.get(selector).rightclick();
+});
+
+Cypress.Commands.add('checkOption', (selector: string) => {
+   cy.get(selector).check();
+});
+
+Cypress.Commands.add('selectOption', (selector: string, value: string) => {
+   cy.get(selector).select(value);
+});
+
+Cypress.Commands.add('shouldHaveValue', (selector: string, expectedValue: string) => {
+   cy.get(selector).should('have.value', expectedValue);
+});
+
+Cypress.Commands.add('verifySucceedText', (selector: string, expectedText: string) => {
+   cy.get(selector).should('have.text', expectedText);
+});

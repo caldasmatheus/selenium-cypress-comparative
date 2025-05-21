@@ -23,5 +23,10 @@ declare namespace Cypress {
       clickButtonUpload(selector: string): Chainable<void>;
       verifyAlert(expectedText: string): Chainable<void>;
       clickElement(selector: string): Chainable<void>;
+      doubleClickElement(selector: string): Chainable<void>;
+      rightClickElement(selector: string): Chainable<void>;
+      selectOption(selector: string, optionText: string): Chainable<void>;
+      shouldHaveValue(selector: string, expectedValue: string): Chainable<void>;
+      verifySucceedText(selector: string, expectedText: string): Chainable<void>;
    }
 }
