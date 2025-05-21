@@ -17,5 +17,7 @@ declare namespace Cypress {
       checkPracticeCheckbox(): Chainable<void>;
       submitForm(): Chainable<void>;
       dragAndDrop(source: string, target: string): Chainable<void>;
+      clickButton(buttonText: string): Chainable<void>;
+      verifyButtonText(buttonText: string, expectedText: string, timeout?: number): Chainable<void>;
    }
 }

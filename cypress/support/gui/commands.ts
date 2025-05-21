@@ -92,3 +92,12 @@ Cypress.Commands.add('dragAndDrop', (dragSelector: string, dropSelector: string)
       });
    });
 });
+
+// dynamic_text_commands.ts
+Cypress.Commands.add('clickButton', (testId: string) => {
+   cy.get(`[data-testid=${testId}]`).click();
+});
+
+Cypress.Commands.add('verifyButtonText', (testId: string, expectedText: string, timeout: number = 5000) => {
+   cy.get(`[data-testid=${testId}]`, { timeout }).should('have.text', expectedText);
+});
