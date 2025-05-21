@@ -101,3 +101,16 @@ Cypress.Commands.add('clickButton', (testId: string) => {
 Cypress.Commands.add('verifyButtonText', (testId: string, expectedText: string, timeout: number = 5000) => {
    cy.get(`[data-testid=${testId}]`, { timeout }).should('have.text', expectedText);
 });
+
+// file_upload_commands.ts
+Cypress.Commands.add('uploadFile', (selector: string, fileName: string) => {
+   cy.get(selector).attachFile(fileName);
+});
+
+Cypress.Commands.add('clickButtonUpload', (selector: string) => {
+   cy.get(selector).click();
+});
+
+Cypress.Commands.add('verifyAlert', (expectedMessage: string) => {
+   cy.get('@alertStub').should('have.been.calledOnceWith', expectedMessage);
+});

@@ -19,5 +19,9 @@ declare namespace Cypress {
       dragAndDrop(source: string, target: string): Chainable<void>;
       clickButton(buttonText: string): Chainable<void>;
       verifyButtonText(buttonText: string, expectedText: string, timeout?: number): Chainable<void>;
+      uploadFile(selector: string, fileName: string): Chainable<void>;
+      clickButtonUpload(selector: string): Chainable<void>;
+      verifyAlert(expectedText: string): Chainable<void>;
+      clickElement(selector: string): Chainable<void>;
    }
 }
