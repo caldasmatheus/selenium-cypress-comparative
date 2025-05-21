@@ -143,3 +143,15 @@ Cypress.Commands.add('shouldHaveValue', (selector: string, expectedValue: string
 Cypress.Commands.add('verifySucceedText', (selector: string, expectedText: string) => {
    cy.get(selector).should('have.text', expectedText);
 });
+
+// iframe_commands.ts
+Cypress.Commands.add(
+   'getIframeBody',
+   (iframeSelector: string): Cypress.Chainable<JQuery<HTMLElement>> => {
+      return cy
+         .get(iframeSelector)
+         .its('0.contentDocument.body')
+         .should('not.be.empty')
+         .then((body) => cy.wrap(body as JQuery<HTMLElement>));
+   }
+);

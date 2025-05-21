@@ -28,5 +28,6 @@ declare namespace Cypress {
       selectOption(selector: string, optionText: string): Chainable<void>;
       shouldHaveValue(selector: string, expectedValue: string): Chainable<void>;
       verifySucceedText(selector: string, expectedText: string): Chainable<void>;
+      getIframeBody(iframeSelector: string): Chainable<JQuery<HTMLElement>>;
    }
 }
