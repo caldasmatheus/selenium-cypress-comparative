@@ -7,5 +7,8 @@ declare namespace Cypress {
       performDoubleClickAction(selector: string): Chainable<void>;
       performRightClickAction(selector: string): Chainable<void>;
       checkOption(selector: string): Chainable<void>;
+      waitForApiResponse(url: string, alias: string): Chainable<void>;
+      verifyApiStatusCode(alias: string, expectedStatusCode: number): Chainable<void>;
+      verifyApiResponseBody(alias: string, expectedBody: object): Chainable<void>;
    }
 }
