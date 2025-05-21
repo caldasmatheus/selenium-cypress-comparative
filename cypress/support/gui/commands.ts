@@ -48,3 +48,28 @@ Cypress.Commands.add('verifyApiResponseBody', (alias: string, expectedBody: obje
       }
    });
 });
+
+// contact_form_commands.ts
+Cypress.Commands.add('fillName', (name: string) => {
+   cy.get('[data-testid=name]').type(name);
+});
+
+Cypress.Commands.add('fillEmail', (email: string) => {
+   cy.get('[data-testid=email]').type(email);
+});
+
+Cypress.Commands.add('selectQueryType', (type: string) => {
+   cy.get('[data-testid=query-type]').select(type);
+});
+
+Cypress.Commands.add('fillDob', (dob: string) => {
+   cy.get('[data-testid=dob]').type(dob);
+});
+
+Cypress.Commands.add('checkPracticeCheckbox', () => {
+   cy.get('[data-testid=practice-checkbox]').click();
+});
+
+Cypress.Commands.add('submitForm', () => {
+   cy.get('[data-testid=submit-button]').click();
+});

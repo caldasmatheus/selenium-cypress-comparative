@@ -10,5 +10,11 @@ declare namespace Cypress {
       waitForApiResponse(url: string, alias: string): Chainable<void>;
       verifyApiStatusCode(alias: string, expectedStatusCode: number): Chainable<void>;
       verifyApiResponseBody(alias: string, expectedBody: object): Chainable<void>;
+      fillName(name: string): Chainable<void>;
+      fillEmail(email: string): Chainable<void>;
+      selectQueryType(queryType: string): Chainable<void>;
+      fillDob(dob: string): Chainable<void>;
+      checkPracticeCheckbox(): Chainable<void>;
+      submitForm(): Chainable<void>;
    }
 }
