@@ -16,5 +16,6 @@ declare namespace Cypress {
       fillDob(dob: string): Chainable<void>;
       checkPracticeCheckbox(): Chainable<void>;
       submitForm(): Chainable<void>;
+      dragAndDrop(source: string, target: string): Chainable<void>;
    }
 }

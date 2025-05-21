@@ -73,3 +73,22 @@ Cypress.Commands.add('checkPracticeCheckbox', () => {
 Cypress.Commands.add('submitForm', () => {
    cy.get('[data-testid=submit-button]').click();
 });
+
+// drag_and_drop_commands.ts
+Cypress.Commands.add('dragAndDrop', (dragSelector: string, dropSelector: string) => {
+   cy.get(dragSelector).then($source => {
+      cy.get(dropSelector).then($target => {
+         const dataTransfer = new DataTransfer();
+
+         cy.wrap($source)
+            .trigger('dragstart', { dataTransfer })
+            .trigger('drag', {});
+
+         cy.wrap($target)
+            .trigger('dragenter', { dataTransfer })
+            .trigger('dragover', { dataTransfer })
+            .trigger('drop', { dataTransfer })
+            .trigger('dragend', { dataTransfer });
+      });
+   });
+});
