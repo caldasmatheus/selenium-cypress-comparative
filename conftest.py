@@ -27,7 +27,6 @@ def driver(request):
 def pytest_addoption(parser):
     parser.addoption("--headless", action="store_true", help="run tests in headless mode")
 
-
 @pytest.fixture(scope="function")
 def setup_teardown(driver):
     accordions_page = AccordionsPage(driver)
