@@ -8,13 +8,13 @@ A aplicação testada foi a [CommityQuality](https://commitquality.com/).
 
 ## Instruções
 
-1. Clone este reposirório;
+1. Clone este repositório;
 2. Mude para uma das branchs (selenium ou cypress);
 3. Siga os passos do README.md de cada branch para conseguir executar os testes.
 
 ## Estrutura do projeto
 
-Este projeto é dividido em duas branchs: selenium and cypress;
+Este projeto é dividido em duas branchs: selenium e cypress;
 
 ### Branch Selenium
 
