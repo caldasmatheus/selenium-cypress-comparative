@@ -1,3 +1,5 @@
+import 'cypress-wait-until';
+
 describe('General Components Tests', () => {
    beforeEach(() => {
       cy.visitPracticePage('practice-general-components');
@@ -47,24 +49,43 @@ describe('General Components Tests', () => {
       cy.get('.checkbox-container:nth-child(3) p').should('have.text', 'Checkbox 3 checked');
    });
 
-   it.skip('should navigate to different domain', () => {
-      cy.clickElement('[data-testid=link-same-tab]');
-      cy.url().should('eq', 'https://www.youtube.com/@commitquality');
+   it('should navigate to different domain', () => {
+      cy.get('[data-testid=link-same-tab]').then($link => {
+         $link.removeAttr('target');
+      }).click();
+
+      cy.url().should('include', 'https://www.youtube.com/@commitquality');
    });
 
-   it.skip('should open popup on different domain', () => {
+   it('should open popup on different domain', () => {
       cy.window().then((win) => {
          cy.stub(win, 'open').as('windowOpen');
       });
-      cy.clickElement('[data-testid=link-newtab]');
-      cy.get('@windowOpen').should('be.calledWith', 'https://www.youtube.com/@commitquality');
+
+      cy.clickElement('[data-testid=link-newtab]')
+         .should('have.attr', 'href')
+         .and('include', 'https://www.youtube.com/@commitquality');
+
+      cy.get('[data-testid=link-newtab]').then($link => {
+         $link.removeAttr('target');
+      }).click();
+
+      cy.url().should('include', 'https://www.youtube.com/@commitquality');
    });
 
-   it.skip('should open popup on same domain', () => {
+   it('should open popup on same domain', () => {
       cy.window().then((win) => {
          cy.stub(win, 'open').as('windowOpen');
       });
-      cy.clickElement('[data-testid=link-newtab-practice]');
-      cy.get('@windowOpen').should('be.calledWith', Cypress.config().baseUrl + '/practice');
+
+      cy.clickElement('[data-testid=link-newtab-practice]')
+         .should('have.attr', 'href')
+         .and('include', '/practice');
+
+      cy.get('[data-testid=link-newtab-practice]').then($link => {
+         $link.removeAttr('target');
+      }).click();
+
+      cy.url().should('include', Cypress.config().baseUrl + '/practice');
    });
 });
