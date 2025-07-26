@@ -55,8 +55,8 @@ npx cypress run
 
 ```
 npx cypress run
-npx allure generate allure-results --clean -o allure-report
-npx allure open allure-report
+allure generate allure-results --clean
+allure open
 ```
 
 * Exemplo de criação da imagem Docker, geração do container e execução dos testes no modo Headless, abra o terminal e execute o comando:
