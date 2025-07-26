@@ -23,7 +23,7 @@ No contexto onde o projeto foi clonado:
 cd selenium-cypress-comparative
 ```
 
-Mude para branch do selenium:
+Mude para a branch do cypress:
 ```
 git checkout cypress
 ```
@@ -39,7 +39,7 @@ npm i
 
 Para executar o projeto **selenium-cypress-comparative** siga as etapas:
 
-* Exemplo de execução dos testes no modo Interativo, abra o terminal no VS Code e execute o comando:
+* Exemplo de execução dos testes no modo Interativo, abra o terminal e execute o comando:
 
 ```
 npx cypress open
@@ -57,6 +57,18 @@ npx cypress run
 npx cypress run
 npx allure generate allure-results --clean -o allure-report
 npx allure open allure-report
+```
+
+* Exemplo de criação da imagem Docker, geração do container e execução dos testes no modo Headless, abra o terminal e execute o comando:
+
+```
+docker-compose run cypress-runner
+```
+
+* Exemplo de execução dos testes no modo Headless utilizando um navegador específico, abra o terminal e execute o comando:
+
+```
+docker-compose run cypress-runner --browser chrome
 ```
 
 ### Contribuições
