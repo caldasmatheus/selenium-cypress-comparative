@@ -1,6 +1,9 @@
-version: '3'
+version: '3.8'
 services:
-  cypress:
+  cypress-runner:
+    container_name: selenium-cypress-comparative:cypress
     build: .
     volumes:
-      - .:/app
+      - ./cypress/videos:/e2e/cypress/videos
+      - ./cypress/screenshots:/e2e/cypress/screenshots
+    command: --browser chrome --spec "cypress/e2e/**/*.cy.ts"

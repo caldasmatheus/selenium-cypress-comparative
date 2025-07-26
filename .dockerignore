@@ -1,0 +1,17 @@
+# Arquivo: .dockerignore
+# Descrição: Lista de arquivos/pastas a serem ignorados ao construir a imagem.
+
+# Ignorar dependências locais, pois serão instaladas dentro do contêiner
+node_modules
+
+# Ignorar logs e saídas do Cypress (serão montados via volume)
+cypress/videos/
+cypress/screenshots/
+cypress/reports/
+
+# Arquivos de ambiente local
+.env
+
+# Outros
+npm-debug.log
+README.md
