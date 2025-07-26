@@ -49,14 +49,6 @@ describe('General Components Tests', () => {
       cy.get('.checkbox-container:nth-child(3) p').should('have.text', 'Checkbox 3 checked');
    });
 
-   it('should navigate to different domain', () => {
-      cy.get('[data-testid=link-same-tab]').then($link => {
-         $link.removeAttr('target');
-      }).click();
-
-      cy.url().should('include', 'https://www.youtube.com/@commitquality');
-   });
-
    it('should open popup on different domain', () => {
       cy.window().then((win) => {
          cy.stub(win, 'open').as('windowOpen');
@@ -67,6 +59,14 @@ describe('General Components Tests', () => {
          .and('include', 'https://www.youtube.com/@commitquality');
 
       cy.get('[data-testid=link-newtab]').then($link => {
+         $link.removeAttr('target');
+      }).click();
+
+      cy.url().should('include', 'https://www.youtube.com/@commitquality');
+   });
+
+   it('should navigate to different domain', () => {
+      cy.get('[data-testid=link-same-tab]').then($link => {
          $link.removeAttr('target');
       }).click();
 
